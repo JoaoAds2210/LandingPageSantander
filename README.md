@@ -25,7 +25,7 @@ Este projeto foi construído utilizando tecnologias web fundamentais, focando em
 • HTML5: Estrutura semântica das páginas.
 • CSS3: Estilização moderna, incluindo técnicas de Flexbox, Glassmorphism (efeito de vidro no card de propósito) e design responsivo.
 • Git & GitHub: Controle de versão e hospedagem.
-- GitHub Pages (deploy)
+- GitHub Pages (deploy) - https://joaoads2210.github.io/LandingPageSantander/landing/index.html
 
 📂 Estrutura do Projeto
 O projeto está organizado de forma simples e escalável:
