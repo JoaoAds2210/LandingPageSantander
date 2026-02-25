@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:'Times New Roman', Times, serif;
+    background-image: url("assets/fundoForm.png");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.texto-proposito {
+    background: rgba(255, 255, 255, 0.7);
+    background-color: #d6e5f2;
+    padding: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    max-width: 900px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.texto-proposito h1 {
+    font-size: 2.5em;
+    color: rgb(6, 7, 96);
+    margin-bottom: 30px;
+}
+
+.texto-proposito p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #262626;
+    text-align: justify;
+    
+}
+
+footer {
+    margin-top: 10px;
+}
+.btn-voltar {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #2058c8, #1e4fc2);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-voltar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(44, 107, 237, 0.4);
+}
+
+@media (max-width: 768px) {
+  .membro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .membro:nth-child(even) {
+    flex-direction: column;
+  }
+}

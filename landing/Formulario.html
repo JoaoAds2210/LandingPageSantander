@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formGroup</title>
+    <link rel="stylesheet" href="Formulario.css">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <h1>Cadastramento</h1>
+        </div>
+    </header>
+
+    <main>
+        <form id="taskForm">
+            <fieldset>
+
+                <div class="group">
+                    <label for="objetivo">Hoje, qual é o seu maior objetivo profissional? (Selecione um)</label>
+                    <select id="objetivo" name="objetivo" required>
+                        <option value="">Selecione</option>
+                        <option value="abrir_consultorio">Abrir meu próprio consultório ou clínica particular.</option>
+                        <option value="melhorar_gestao">Melhorar a gestão do meu negócio atual.</option>
+                        <option value="migrar_healthtech">Migrar para o mercado de tecnologia em saúde (Healthtechs).</option>
+                        <option value="inovar_carreira">Entender como inovar na carreira ou dentro da instituição onde trabalho.</option>
+                        <option value="decidindo_caminho">Ainda estou decidindo meu caminho.</option>
+                    </select>
+                </div>
+
+                <div class="group">
+                    <label for="dominarHabilidade">
+                        Se você pudesse dominar uma nova habilidade HOJE para acelerar sua carreira, qual seria?
+                    </label>
+                    <select id="dominarHabilidade" name="dominarHabilidade" required>
+                        <option value="">Selecione</option>
+                        <option value="gestao_negocios">Gestão e Negócios</option>
+                        <option value="inovacao_tecnologia">Inovação e Tecnologia</option>
+                        <option value="ambas">As duas opções acima me interessam igualmente</option>
+                        <option value="nenhuma">Nenhuma das anteriores</option>
+                    </select>
+                </div>
+
+                <div class="group">
+                    <label for="medoProfissional">Qual é o seu maior "medo" profissional atualmente?</label>
+                    <select id="medoProfissional" name="medoProfissional" required>
+                        <option value="">Selecione</option>
+                        <option value="depender_plantoes">Depender apenas de plantões ou convênios</option>
+                        <option value="ficar_para_tras_tecnologia">Ficar para trás tecnologicamente</option>
+                        <option value="nao_saber_gerir">Não saber gerir finanças e marketing</option>
+                        <option value="nao_conseguir_emprego">Não conseguir emprego ou boa renda</option>
+                    </select>
+                </div>
+
+                <div class="group">
+                    <label for="avisoWorkshop">
+                        Gostaria de ser avisado de um workshop gratuito sobre o tema escolhido?
+                    </label>
+                    <select id="avisoWorkshop" name="avisoWorkshop" required>
+                        <option value="">Selecione</option>
+                        <option value="sim">Sim, com certeza</option>
+                        <option value="talvez">Talvez, dependendo da data</option>
+                    </select>
+                </div>
+
+                <div class="group">
+                    <label>O que mais te impede de avançar hoje? (Selecione até dois)</label>
+
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="impedimentoAvancar" value="conhecimento"> Falta de conhecimento</label>
+                        <label><input type="checkbox" name="impedimentoAvancar" value="tecnologia"> Dificuldade com tecnologia</label>
+                        <label><input type="checkbox" name="impedimentoAvancar" value="risco"> Medo do risco</label>
+                        <label><input type="checkbox" name="impedimentoAvancar" value="tempo"> Falta de tempo</label>
+                        <label><input type="checkbox" name="impedimentoAvancar" value="inicio"> Não sei por onde começar</label>
+                    </div>
+                </div>
+
+                <div class="group">
+                    <label for="areaAtuacao">
+                        Em que área da saúde você atua ou pretende atuar?
+                    </label>
+                    
+                    <select id="areaAtuacao" name="areaAtuacao" required>
+                        <option value="">Selecione</option>
+                        <option value="medicina">Medicina</option>
+                        <option value="enfermagem">Enfermagem</option>
+                        <option value="fisioterapia">Fisioterapia</option>
+                        <option value="odontologia">Odontologia</option>
+                        <option value="fonoaudiologia">Fonoaudiologia</option>
+                        <option value="biomedicina_farmacia">Biomedicina/Farmácia</option>
+                        <option value="educacao_fisica_nutricao">Educação Física/Nutrição</option>
+                        <option value="terapia_psicologia">Terapia Ocupacional/Psicologia</option>
+                        <option value="outra">Outra</option>
+                    </select>
+                </div>
+
+                <div class="group">
+                    <label for="nome">Seu nome</label>
+                    <input id="nome" name="nome" type="text" placeholder="Digite aqui o seu nome" required>
+                </div>
+
+                <div class="group">
+                    <label for="email">E-mail ou WhatsApp</label>
+                    <input id="email" name="email" type="text" placeholder="Digite aqui seu e-mail/WhatsApp" required>
+                </div>
+
+                <button type="submit">Enviar</button>
+
+            </fieldset>
+        </form>
+    </main>
+
+    <footer>
+        <div class="botao">
+            <a href="index.html" class="btn-voltar">Voltar para o início</a>
+        </div>
+    </footer>
+
+    <script>
+        const checkboxes = document.querySelectorAll('input[name="impedimentoAvancar"]');
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener("change", () => {
+                const marcados = document.querySelectorAll('input[name="impedimentoAvancar"]:checked');
+                if (marcados.length > 2) {
+                    cb.checked = false;
+                    alert("Você pode selecionar no máximo duas opções.");
+                }
+            });
+        });
+    </script>
+
+    <script>
+        const form = document.getElementById('taskForm');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Impede a página de recarregar
+
+            // 1. Captura os dados do formulário
+            const formData = new FormData(form);
+
+            // 2. Monta o objeto JSON exatamente como o seu CadastroDTO no Java
+            const payload = {
+                objetivo: formData.get('objetivo'),
+                dominarHabilidade: formData.get('dominarHabilidade'),
+                medoProfissional: formData.get('medoProfissional'),
+                avisoWorkshop: formData.get('avisoWorkshop'),
+                // getAll pega todos os checkboxes marcados e transforma em um Array []
+                impedimentoAvancar: formData.getAll('impedimentoAvancar'), 
+                areaAtuacao: formData.get('areaAtuacao'),
+                nome: formData.get('nome'),
+                email: formData.get('email')
+            };
+
+            try {
+                // 3. Envia para o Back-end
+                const response = await fetch('http://localhost:8080/api/cadastros', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                // 4. Trata a resposta
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log('Sucesso:', result);
+                    alert('Cadastro realizado com sucesso!');
+                    form.reset(); // Limpa o formulário após o sucesso
+                } else {
+                    const errorData = await response.text();
+                    console.error('Erro no servidor:', errorData);
+                    alert('Erro ao enviar cadastro. Verifique o console.');
+                }
+            } catch (error) {
+                console.error('Erro de conexão:', error);
+                alert('Não foi possível conectar ao servidor. O Back-end está rodando?');
+            }
+        });
+    </script>
+
+    <script>
+        document.getElementById("meuFormulario").addEventListener("submit", function(event) {
+            event.preventDefault(); // impede o envio real
+
+            document.getElementById("mensagem").style.display = "block";
+
+            this.reset(); // limpa o formulário
+        });
+    </script>
+</body>
+</html>

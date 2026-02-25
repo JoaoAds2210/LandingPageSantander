@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:'Times New Roman', Times, serif;
+    background-image: url("assets/fundoForm.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#time {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.membro {
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  justify-content: space-between;
+  gap: 4rem;
+
+  margin: 4rem 0;
+  padding: 3rem;
+
+  background-color: #d6e5f2;
+  border-radius: 18px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.texto {
+  flex: 1;
+}
+
+.foto {
+  flex: 0 0 300px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.foto img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+#time h1 {
+  color: rgb(6, 7, 96);
+    margin-top: 60px;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    padding-right: 10px;
+    margin: 0px;
+    gap: 20px;
+}
+
+#logo {
+    height: 50px;
+    width: auto;
+    margin: 0px;
+}
+
+.btn-voltar {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #2058c8, #1e4fc2);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-voltar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(44, 107, 237, 0.4);
+}
+
+@media (max-width: 768px) {
+  .membro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .membro:nth-child(even) {
+    flex-direction: column;
+  }
+}
