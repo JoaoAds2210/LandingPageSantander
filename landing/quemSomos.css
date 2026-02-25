@@ -13,8 +13,10 @@ body{
 }
 
 #time {
-  width: 85%;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .membro {
@@ -38,6 +40,9 @@ body{
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.membro {
+    margin: 2rem 0;
 }
 
 .texto {
@@ -81,9 +86,10 @@ body{
 }
 
 .btn-voltar {
-    position: absolute;
-    top: 30px;
-    right: 40px;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
     display: inline-block;
     margin-bottom: 20px;
     padding: 8px 16px;
@@ -102,12 +108,44 @@ body{
 }
 
 @media (max-width: 768px) {
-  .membro {
-    flex-direction: column;
+
+  #time h1 {
+    font-size: 2rem;
     text-align: center;
   }
 
-  .membro:nth-child(even) {
-    flex-direction: column;
+  .titulo {
+    justify-content: center;
+    text-align: center;
   }
+
+  .membro {
+    flex-direction: column;
+    text-align: left;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .foto {
+    flex: none;
+    justify-content: center;
+  }
+
+  .foto img {
+    max-width: 200px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
 }

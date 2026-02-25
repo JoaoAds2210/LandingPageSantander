@@ -38,13 +38,10 @@ nav a {
 
 .estrutura {
     max-width: 1280px;
-    margin: auto;
+    margin: 0 auto;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
-    
 }
 
 .estrutura img{
@@ -129,4 +126,52 @@ footer {
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    nav.estrutura {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* MAIN */
+    main.estrutura {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    header {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+        text-align: left;
+        word-spacing: normal;
+    }
+
+    p {
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .estrutura img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .btn-formulario {
+        width: 100%;
+        text-align: center;
+    }
 }
